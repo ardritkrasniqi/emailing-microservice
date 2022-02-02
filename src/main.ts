@@ -12,7 +12,7 @@ async function bootstrap() {
       port: 8875
     },
   };
-  
+  // todo change these lines and create a propper microservice
   const app: INestMicroservice = await
     NestFactory.createMicroservice(
       AppModule,
