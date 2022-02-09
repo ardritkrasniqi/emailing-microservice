@@ -1,5 +1,5 @@
 import { MailerService } from "@nestjs-modules/mailer";
-import { Process, Processor } from "@nestjs/bull";
+import { OnQueueCompleted, OnQueueFailed, Process, Processor } from "@nestjs/bull";
 import { Injectable, Logger } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { Job } from "bull";
@@ -34,5 +34,18 @@ export class MailProcessor {
         } catch {
             this.logger.error(`Error while sending confirmation email to: '${job.data.email}'`)
         }
+    }
+
+    @OnQueueCompleted()
+    public onComplete(job: Job) {
+        this.logger.debug(`Completed job ${job.id} of type ${job.name}`);
+    }
+
+    @OnQueueFailed()
+    public onError(job: Job<any>, error: any) {
+        this.logger.error(
+        `Failed job ${job.id} of type ${job.name}: ${error.message}`,
+        error.stack,
+        );
     }
 }
