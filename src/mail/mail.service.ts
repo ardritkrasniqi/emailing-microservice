@@ -30,7 +30,6 @@ export class MailService {
                 this.logger.error(
                   `Error queueing registration email to user ${error}`
                 );
-
                 throw error;
         }
     }
