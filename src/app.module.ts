@@ -6,11 +6,15 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MailService } from './mail/mail.service';
 import { MailController } from './mail/mail.controller';
+import { MailModule } from './mail/mail.module';
 
 @Module({
   imports: [
     BullModule.forRootAsync({
-      imports: [ConfigModule],
+      imports: [
+        ConfigModule,
+        MailModule
+      ],
       useFactory: async (configService: ConfigService) => ({
         redis: {
           host: configService.get<string>("REDIS_HOST"),
@@ -29,6 +33,7 @@ import { MailController } from './mail/mail.controller';
         REDIS_PORT: Joi.number().required(),
       }),
     }),
+    MailModule,
   ],
   controllers: [AppController, MailController],
   providers: [AppService, MailService],
