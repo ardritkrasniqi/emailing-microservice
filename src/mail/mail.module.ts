@@ -1,7 +1,7 @@
 import { MailerModule } from '@nestjs-modules/mailer';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { HandleBarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
+import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 
 @Module({
     imports: [
@@ -23,7 +23,7 @@ import { HandleBarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
                 defaults: { from: '"Ardrit Dev Microservice" <microservice@ardrit.dev>' }, // specify the from header on emails
                 template: {
                     dir: __dirname + "/templates", // directory where the templates are located
-                    adapter: new HandleBarsAdapter(),
+                    adapter: new HandlebarsAdapter(),
                     options: { strict: true },
                   },
             })
