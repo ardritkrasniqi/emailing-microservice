@@ -23,7 +23,7 @@ import { MailController } from './mail.controller';
                         user: configService.get("EMAIL_ADDRESS"),
                         pass: configService.get("EMAIL_PASSWORD"),
                     },
-                    tls: { rejectUnauthorized: false },
+                    tls: { rejectUnauthorized: true },
                 },
                 defaults: { from: '"Ardrit Dev Microservice" <microservice@ardrit.dev>' }, // specify the from header on emails
                 template: {
