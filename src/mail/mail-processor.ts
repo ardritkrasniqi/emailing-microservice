@@ -36,11 +36,13 @@ export class MailProcessor {
         }
     }
 
+    // logs a completed queue
     @OnQueueCompleted()
     public onComplete(job: Job) {
         this.logger.debug(`Completed job ${job.id} of type ${job.name}`);
     }
 
+    // logs a failed queue
     @OnQueueFailed()
     public onError(job: Job<any>, error: any) {
         this.logger.error(
