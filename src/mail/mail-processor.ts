@@ -17,7 +17,7 @@ export class MailProcessor {
 
 
 
-    @Process(CONFIRM_REGISTRATION) // the executional process
+    @Process(CONFIRM_REGISTRATION) // adds the request on a job queue
     public async confirmRegistration(
         job: Job<{ email: string, confirm_url: string }>
     ) {
