@@ -1,4 +1,4 @@
-import Joi from '@hapi/joi';
+import * as Joi from '@hapi/joi';
 import { BullModule } from '@nestjs/bull';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -36,6 +36,6 @@ import { MailModule } from './mail/mail.module';
     MailModule,
   ],
   controllers: [AppController, MailController],
-  providers: [AppService, MailService],
+  providers: [AppService],
 })
 export class AppModule {}
