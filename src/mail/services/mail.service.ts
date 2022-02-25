@@ -1,7 +1,7 @@
 import { InjectQueue } from '@nestjs/bull';
 import { Injectable, Logger } from '@nestjs/common';
 import { Queue } from 'bull';
-import { CONFIRM_REGISTRATION, MAIL_QUEUE } from 'src/constants/mail-constants';
+import { CONFIRM_REGISTRATION, MAIL_QUEUE } from '../constants/mail-constants';
 
 @Injectable()
 export class MailService {

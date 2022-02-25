@@ -4,8 +4,8 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { MailService } from './mail/mail.service';
-import { MailController } from './mail/mail.controller';
+import { MailService } from './mail/services/mail.service';
+import { MailController } from './mail/controllers/mail.controller';
 import { MailModule } from './mail/mail.module';
 
 @Module({

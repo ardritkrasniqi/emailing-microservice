@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common';
 import { EventPattern } from '@nestjs/microservices';
-import { MailService } from './mail.service';
+import { MailService } from '../services/mail.service';
 
 @Controller()
 export class MailController {

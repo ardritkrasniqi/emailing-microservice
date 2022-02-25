@@ -7,10 +7,10 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 import { BullModule } from '@nestjs/bull';
-import { MAIL_QUEUE } from 'src/constants/mail-constants';
+import { MAIL_QUEUE } from 'src/mail/constants/mail-constants';
 import { MailProcessor } from './mail-processor';
-import { MailService } from './mail.service';
-import { MailController } from './mail.controller';
+import { MailService } from './services/mail.service';
+import { MailController } from './controllers/mail.controller';
 
 @Module({
     imports: [

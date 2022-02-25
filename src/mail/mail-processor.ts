@@ -3,7 +3,7 @@ import { OnQueueCompleted, OnQueueFailed, Process, Processor } from "@nestjs/bul
 import { Injectable, Logger } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { Job } from "bull";
-import { CONFIRM_REGISTRATION, MAIL_QUEUE } from "src/constants/mail-constants";
+import { CONFIRM_REGISTRATION, MAIL_QUEUE } from "src/mail/constants/mail-constants";
 
 @Injectable()
 @Processor(MAIL_QUEUE)
